@@ -1,27 +1,171 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Libre+Baskerville&family=Merriweather:wght@700&family=Work+Sans&display=swap");
+/* ... Your existing styles ... */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Work Sans", sans-serif;
+/* Add a subtle gradient to the container */
+.container {
+  background: linear-gradient(135deg, #f6e7eb, #c3aed6);
 }
 
-html {
-  color: rgb(96 101 123);
+/* Animate the container with a slight rotation */
+@keyframes rotateContainer {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
+.container {
+  background: linear-gradient(135deg, #f6e7eb, #c3aed6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.container {
+  animation: rotateContainer 6s infinite ease-in-out;
+}
+
+/* Add a border gradient to the main content */
+/* Updated .main-content styles */
+.main-content {
+  border: 2px solid transparent;
+  /* Increased border width for visibility */
+  border-image: linear-gradient(135deg, #2ac9a4, #11a683) 1;
+  /* Reversed gradient for border image */
+  border-image-slice: 1;
+  transition: border 0.3s ease-in-out;
+  padding: 20px;
+  /* Increased padding for better spacing */
+}
+
+/* New styles for .container */
+.container {
+  background: linear-gradient(135deg, #f6e7eb, #c3aed6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 80px;
+  max-width: 800px;
+  position: relative;
+  /* Added position relative for absolute positioning */
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  /* Added semi-transparent overlay */
+  border-radius: 12px;
+  /* Match the container's border radius */
+  z-index: -1;
+  /* Move the overlay behind the container content */
+}
+
+.main-content:hover {
+  border: 1px solid rgba(43, 45, 56, 0.3);
+}
+
+/* Style the button with a sophisticated animation */
+button {
+  background: linear-gradient(135deg, #11a683, #2ac9a4);
+  color: #fff;
+  border-radius: 6px;
+  padding: 16px 32px;
+  border: none;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: auto;
+  /* Center the button horizontally */
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  /* Adjust the distance from the bottom */
+  left: 50%;
+  /* Center the button horizontally */
+  transform: translateX(-50%);
+  /* Center the button horizontally */
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.3s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+button {
+  position: relative;
+  background: linear-gradient(135deg, #11a683, #2ac9a4);
+  color: #fff;
+  border-radius: 6px;
+  padding: 16px 32px;
+  border: none;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: auto;
+  /* Center the button horizontally */
+  display: flex;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.3s ease, transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 50%;
+  /* Adjusted width to make it half of the button */
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+button:hover::before {
+  transform: translate(-50%, -50%) scale(3);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #2ac9a4, #11a683);
+  box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+/* Style the counter text with a different font */
+.counter-container p {
+  font-family: 'Inter', sans-serif;
+  color: #4e4e4e;
+  /* Adjusted text color */
+}
+
+/* Add a shadow to the counter text */
+.counter-container p {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust the gradient for the body background */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  align-self: center;
-  background: rgb(255 255 255);
-}
-
-.container {
-  padding: 30px;
-  margin-top: 80px;
+  background: linear-gradient(90deg, #f8f8f8, #eaeaea);
+  /* Subtle gradient background */
+  min-height: 100vh;
+  /* Ensure full viewport height */
+  margin: 0;
+  /* Remove default margin */
+  font-family: "Inter", sans-serif;
+  /* Use a professional font */
+  color: #333;
+  /* Adjusted text color for better readability */
 }
 
 h2 {
@@ -39,99 +183,4 @@ p {
   margin-bottom: 100px;
 }
 
-.main-content {
-  max-width: 50rem;
-  width: 100%;
-  min-height: 400px;
-  height: auto;
-  padding: 18px 18px 120px 18px;
-  position: relative;
-  resize: none;
-  box-shadow: 0 12px 48px 0px rgb(109 117 141 / 20%);
-  background: rgb(255 255 255);
-  border: 0.5px solid rgb(231 233 245);
-  border-radius: 16px;
-}
-
-.main-content:focus {
-  border: 0.3px solid rgb(43, 45, 56, 0.3);
-  outline: none;
-}
-
-p,
-.main-content {
-  font-size: 18px;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  line-height: 1.6;
-}
-
-.btn-style {
-  display: flex;
-
-}
-
-button {
-  /* position: absolute; */
-  background: rgb(17 166 131);
-  color: rgb(255 255 255);
-  border-radius: 6px;
-  padding: 16px 32px;
-  border: none;
-  font-size: 18px;
-  letter-spacing: 1px;
-  margin: auto;
-  display: flex;
-  position: relative;
-  margin-top: -80px;
-  cursor: pointer;
-}
-
-button:focus,
-button:hover {
-  background: rgb(42, 201, 164);
-  box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
-}
-
-.counter-container {
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-}
-
-@media screen and (max-width: 768px) {
-  .container {
-    margin-top: 20px;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-
-  p {
-    font-size: 16px;
-    word-spacing: normal;
-    margin-bottom: 40px;
-    margin-top: 15px;
-  }
-
-  .main-content {
-    /*border:1px solid*/
-    font-size: 16px;
-    word-spacing: normal;
-  }
-
-  button {
-    padding: 12px 28px;
-    font-size: 16px;
-    margin-top: -70px;
-  }
-
-  .counter-container {
-    flex-direction: column;
-  }
-
-  .counter-container p:first-child {
-    margin-bottom: 0;
-  }
-}
+/* ... Your existing styles ... */
